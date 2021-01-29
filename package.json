@@ -1,0 +1,8 @@
+{
+  "name": "github-leak-checker",
+  "version": "0.0.1",
+  "description": "This is the check-tools if the resource is leaked to Github",
+  "main": "index.js",
+  "author": "TakuKobayashi",
+  "license": "MIT"
+}
