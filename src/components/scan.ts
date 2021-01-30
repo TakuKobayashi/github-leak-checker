@@ -6,9 +6,7 @@ export async function scanFromCurrent(): Promise<GithubRepositoryInfo[]> {
   // to uniqRepositories
   const scannedResultObj: { [s: number]: GithubRepositoryInfo } = {};
   const gitlogs = await loadAllGitLogs();
-  const commitHashes: string[] = gitlogs.map((gitlog) => {
-    return gitlog.hash;
-  });
+  const commitHashes: string[] = gitlogs.map(gitlog => gitlog.hash);
   const searchResults = await searchCommits(commitHashes);
   for (const item of searchResults.items) {
     scannedResultObj[item.repository.id] = item.repository;
