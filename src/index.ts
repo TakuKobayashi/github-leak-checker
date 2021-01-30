@@ -1,6 +1,6 @@
 import { program } from 'commander';
 import { sync as readPkgUpSync } from 'read-pkg-up';
-import checkAction from './command/check';
+import scanAction from './command/scan';
 
 const manifest = readPkgUpSync({ cwd: require.resolve('.') });
 
@@ -14,5 +14,5 @@ program.storeOptionsAsProperties(false);
  */
 program.version(manifest ? manifest.packageJson.version : 'unknown', '-v, --version', 'output the current version');
 
-program.command('check').description('check the same program projects from Github').action(checkAction);
+program.command('scan').description('Scan the repository information with similar source code from Github').action(scanAction);
 program.parse(process.argv);
