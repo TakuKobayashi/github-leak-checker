@@ -1,6 +1,6 @@
 import { program } from 'commander';
 import { sync as readPkgUpSync } from 'read-pkg-up';
-import scanAction from './command/scan';
+import scanAction from './commands/scan';
 
 const manifest = readPkgUpSync({ cwd: require.resolve('.') });
 
