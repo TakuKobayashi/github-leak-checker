@@ -6,7 +6,7 @@ async function execGitLogs(): Promise<LogResult<DefaultLogFields>> {
   return git.log();
 }
 
-async function loadAllGitLogs() {
+export async function loadAllGitLogs() {
   const resultGitlogs = await execGitLogs();
   return resultGitlogs.all;
 }

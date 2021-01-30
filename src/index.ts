@@ -1,5 +1,6 @@
 import { program } from 'commander';
 import { sync as readPkgUpSync  } from 'read-pkg-up';
+import checkAction from "./command/check";
 
 const manifest = readPkgUpSync({cwd: require.resolve('.')});
 
@@ -15,7 +16,5 @@ program.version(manifest ? manifest.packageJson.version : 'unknown', '-v, --vers
 
 program.command('check')
 .description('check the same program projects from Github')
-.action((source, destination) => {
-  console.log("command");
-});
+.action(checkAction);
 program.parse(process.argv);
