@@ -1,5 +1,7 @@
 import simpleGit, { SimpleGit, LogResult, DefaultLogFields } from 'simple-git';
 
+const { execSync } = require('child_process');
+
 const git: SimpleGit = simpleGit();
 
 async function execGitLogs(): Promise<LogResult<DefaultLogFields>> {
@@ -13,4 +15,9 @@ export async function loadAllGitLogs() {
 
 async function execGitRemotes() {
   return git.getRemotes(true);
+}
+
+export function execGitFileList(): string[] {
+  const gitFileListString = execSync('git ls-files').toString();
+  return gitFileListString.split('\n');
 }
