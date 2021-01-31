@@ -6,10 +6,10 @@ export default async (options: any): Promise<void> => {
   for (const repository of scannedRepositories) {
     console.log(
       [
-        'repository name:' + repository.name,
+        'repositoryName:' + repository.name,
         'url:' + chank.cyanBright(repository.html_url),
-        'repository owner name:' + repository.owner.login,
-      ].join(' '),
+        'repositoryOwnerName:' + repository.owner.login,
+      ].join(','),
     );
   }
 };

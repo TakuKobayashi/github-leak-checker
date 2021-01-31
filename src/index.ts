@@ -14,5 +14,7 @@ program.storeOptionsAsProperties(false);
  */
 program.version(manifest ? manifest.packageJson.version : 'unknown', '-v, --version', 'output the current version');
 
-program.command('scan').description('Scan the repository information with similar source code from Github').action(scanAction);
+program.command('scan').description('Scan the repository information with similar source code from Github').action(async (source, destination) => {
+  await scanAction(destination);
+});
 program.parse(process.argv);
