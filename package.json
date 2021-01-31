@@ -1,12 +1,12 @@
 {
   "name": "github-leak-checker",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "This is the check-tools if the resource is leaked to Github",
   "main": "dist/index.js",
   "author": "TakuKobayashi",
   "license": "MIT",
   "bin": {
-    "github-leak-checker": "./dist/index.js"
+    "github-leak-checker": "./bin/github-leak-checker.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
