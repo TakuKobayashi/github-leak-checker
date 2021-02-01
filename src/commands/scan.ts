@@ -1,14 +1,14 @@
-import { scanFromCurrent } from '../components/scan';
-import * as chank from 'chalk';
+import { scanRepositories } from '../components/scan';
+import { green, magenta, cyanBright } from 'chalk';
 
 export default async (options: any): Promise<void> => {
-  const scannedRepositories = await scanFromCurrent();
+  const scannedRepositories = await scanRepositories();
   for (const repository of scannedRepositories) {
     console.log(
       [
-        chank.green('repositoryName') + ':' + chank.magenta(repository.name),
-        chank.green('url') + ':' + chank.cyanBright(repository.html_url),
-        chank.green('repositoryOwnerName') + ':' + chank.magenta(repository.owner.login),
+        green('repositoryName') + ':' + magenta(repository.name),
+        green('url') + ':' + cyanBright(repository.html_url),
+        green('repositoryOwnerName') + ':' + magenta(repository.owner.login),
       ].join(','),
     );
   }
