@@ -1,6 +1,6 @@
 {
   "name": "github-leak-checker",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "This is the check-tools if the resource is leaked to Github",
   "main": "dist/index.js",
   "author": "TakuKobayashi",
