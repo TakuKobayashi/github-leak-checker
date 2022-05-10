@@ -5,14 +5,14 @@ const LIMIT_QUERY_WORDS = 256;
 const SEARCH_JOIN_WORD = ' OR ';
 
 export async function searchCommits(commitHashes: string[] | string) {
-  const flatCommitHashes = [commitHashes].flat();
+  const flatCommitHashes = [].concat(...commitHashes);
   const searchQueryHashes = sliceLimitHashes(flatCommitHashes);
   const searchResults = await octokit.search.commits({ q: searchQueryHashes.join(SEARCH_JOIN_WORD) });
   return searchResults.data;
 }
 
 export async function searchAllCommitItems(commitHashes: string[] | string) {
-  const flatCommitHashes = [commitHashes].flat();
+  const flatCommitHashes = [].concat(...commitHashes);
   const searchAllResults = [];
   while (flatCommitHashes.length > 0) {
     const searchQueryHashes = sliceLimitHashes(flatCommitHashes);
